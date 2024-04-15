@@ -50,6 +50,9 @@ const userSchema = new mongoose.Schema({
 
 }, { timestamps: true })
 
+
+// *************************************************custom middlewares******************************************************8
+
 // pre-save middleware function in Mongoose
 userSchema.pre("save", async function (next) {
     if (this.isModified("password"))
