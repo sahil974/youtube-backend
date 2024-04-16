@@ -3,9 +3,10 @@ import { APIerror } from "../utils/APIerror.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import jwt from "jsonwebtoken"
 
+// main fucntion is to add user to the 
 export const verifyJWT = asyncHandler(async (req, res, next) => {
-    // now req.cookie exits as we have used app.use(cookieParser())
     try {
+        // now req.cookie exits as we have used app.use(cookieParser())
         const token = req.cookies?.accessToken || req.header("Authorizartion")?.replace("Bearer ", "")
 
         if (!token)
