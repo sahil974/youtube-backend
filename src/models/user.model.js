@@ -61,11 +61,11 @@ userSchema.pre("save", async function (next) {
 })
 
 // custom methods defined on a Mongoose 
-userSchema.methods.isPasswordCorrect = async (password) => {
+userSchema.methods.isPasswordCorrect = async function (password) {
     return await bcrypt.compare(password, this.password)
 }
 
-userSchema.methods.generateAccessToken = () => {
+userSchema.methods.generateAccessToken = function () {
     return jwt.sign(
         {
             _id: this._id,
@@ -80,7 +80,7 @@ userSchema.methods.generateAccessToken = () => {
     )
 }
 
-userSchema.methods.generateRefreshToken = () => {
+userSchema.methods.generateRefreshToken = function () {
     return jwt.sign(
         {
             _id: this._id,
