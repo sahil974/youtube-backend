@@ -1,6 +1,6 @@
 import multer from 'multer'
 
-
+// this middleware makes the req.files / req.file avaialble
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, './public/temp')
